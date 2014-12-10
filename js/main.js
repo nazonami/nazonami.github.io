@@ -12,15 +12,6 @@ var COMBO = 0;
 
 window.onload = function() {
     var game = new Core(SCREEN_WIDTH, SCREEN_HEIGHT);
-    // ゲーム画面を画面に合わせて変倍する
-    var scale_w = window.innerWidth/SCREEN_WIDTH;
-    var scale_h = window.innerHeight/SCREEN_HEIGHT;
-    if (scale_h >= scale_w){
-        game.scale = scale_w;
-    }
-    else{
-        game.scale = scale_h;
-    }
     game.fps = 24;
     game.score = 0;
     game.preload('./img/mascot_chara.png', './img/all.png', './img/logo.png', './img/button.png','./img/hacka_chan.png'); 
@@ -158,6 +149,7 @@ window.onload = function() {
             var license = new Entity();
             license._element = document.createElement('div');
             license.width = 320;
+            license.height = 480; 
             license._element.innerHTML = '<h1>お借りしたキャラクター</h1><p>プロ生ちゃん（暮井 慧）</br>© 2011 プログラミング生放送</p><p>あんずちゃん（美雲あんず）</br>©GMO Internet, Inc.   ※再使用は禁止です</p><p>美雲このは</br>©GMO Internet, Inc.  ※再使用は禁止です</p><p>クラウディア・窓辺 (Claudia Madobe)</br>© 2011 Microsoft Corporation All Rights Reserved.</p><p>ユニティちゃん（大鳥こはく）</p><img src="http://unity-chan.com/images/imageLicenseLogo.png"  width="60" height="60" alt="ユニティちゃんライセンス"><p>このコンテンツは、『ユニティちゃんライセンス』で提供されています</p><p>クエリ・ラブクラフト（クエリちゃん）</p><p>ハッカドール１号</p>';
             scene.addChild(license);
             scene.addEventListener('touchstart', function(e) {
